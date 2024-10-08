@@ -26,6 +26,7 @@
                 <th scope="col">Account Name</th>
                 <th scope="col">Account Number</th>
                 <th scope="col">Account Balance</th>
+                <th scope="col">Country</th>          //NEW
                 <th scope="col">Account Currency</th>
                 <th scope="col">Account Status</th>
                 <th scope="col">Actions</th>
@@ -37,6 +38,7 @@
                 <td>{{ account.account_number }}</td>
                 <td>{{ account.balance }}</td>
                 <td>{{ account.currency }}</td>
+                <td>{{ account.country }}</td>          //NEW   
                 <td>
                   <span
                     v-if="account.status == 'Active'"
@@ -109,7 +111,22 @@
               required
             >
             </b-form-input>
-          </b-form-group>
+          </b-form-group>     
+          <b-form-group                
+            id="form-currency-group"
+            label="Country:"
+            label-for="form-country-input"
+          >
+            <b-form-input
+              id="form-country-input"
+              type="text"
+              v-model="createAccountForm.country"
+              placeholder="Country"
+              required
+            >
+            </b-form-input>
+          </b-form-group>            
+
 
           <b-button type="submit" variant="outline-info">Submit</b-button>
         </b-form>
@@ -156,6 +173,7 @@ export default {
       createAccountForm: {
         name: "",
         currency: "",
+        country: "",          //NEW 
       },
       editAccountForm: {
         id: "",
@@ -258,6 +276,7 @@ export default {
       this.createAccountForm.name = "";
       this.createAccountForm.currency = "";
       this.editAccountForm.id = "";
+      this.editAccountForm.country = "";          //NEW 
       this.editAccountForm.name = "";
     },
 
@@ -268,6 +287,7 @@ export default {
       const payload = {
         name: this.createAccountForm.name,
         currency: this.createAccountForm.currency,
+        country: this.createAccountForm.country,          //NEW 
       };
       this.RESTcreateAccount(payload);
       this.initForm();
