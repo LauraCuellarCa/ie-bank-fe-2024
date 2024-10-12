@@ -26,7 +26,7 @@
                 <th scope="col">Account Name</th>
                 <th scope="col">Account Number</th>
                 <th scope="col">Account Balance</th>
-                <th scope="col">Country</th>          //NEW
+                <th scope="col">Country</th>          
                 <th scope="col">Account Currency</th>
                 <th scope="col">Account Status</th>
                 <th scope="col">Actions</th>
@@ -37,8 +37,8 @@
                 <td>{{ account.name }}</td>
                 <td>{{ account.account_number }}</td>
                 <td>{{ account.balance }}</td>
-                <td>{{ account.currency }}</td>
-                <td>{{ account.country }}</td>          //NEW   
+                <td>{{ account.country }}</td>
+                <td>{{ account.currency }}</td>          
                 <td>
                   <span
                     v-if="account.status == 'Active'"
@@ -173,7 +173,7 @@ export default {
       createAccountForm: {
         name: "",
         currency: "",
-        country: "",          //NEW 
+        country: "",         
       },
       editAccountForm: {
         id: "",
@@ -276,7 +276,7 @@ export default {
       this.createAccountForm.name = "";
       this.createAccountForm.currency = "";
       this.editAccountForm.id = "";
-      this.editAccountForm.country = "";          //NEW 
+      this.editAccountForm.country = "";          
       this.editAccountForm.name = "";
     },
 
@@ -287,7 +287,7 @@ export default {
       const payload = {
         name: this.createAccountForm.name,
         currency: this.createAccountForm.currency,
-        country: this.createAccountForm.country,          //NEW 
+        country: this.createAccountForm.country,        
       };
       this.RESTcreateAccount(payload);
       this.initForm();
