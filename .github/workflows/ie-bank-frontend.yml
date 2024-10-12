@@ -9,7 +9,7 @@ on:
 env:
   FRONTEND_WEBAPP_DEV: lcuellar-fe-dev
   FRONTEND_WEBAPP_UAT: lcuellar-fe-uat
-  
+
 
 jobs:
   build-dev:
@@ -83,7 +83,6 @@ jobs:
           path: dist-uat/
 
   deploy-uat:
-    if: github.event_name == 'push'
     runs-on: ubuntu-latest
     needs: build-uat
     environment:
